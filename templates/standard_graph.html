@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sensor Data Visualization</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+    .chart-container {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+      width: 80%;
+      max-width: 800px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Sensor Data Visualization</h1>
+
+  <!-- Temperature Chart -->
+  <div class="chart-container">
+    <h2>Temperature (°C)</h2>
+    <canvas id="temperatureChart"></canvas>
+  </div>
+
+  <!-- Humidity Chart -->
+  <div class="chart-container">
+    <h2>Humidity (%)</h2>
+    <canvas id="humidityChart"></canvas>
+  </div>
+
+  <!-- Sunlight Chart -->
+  <div class="chart-container">
+    <h2>Sunlight (lux)</h2>
+    <canvas id="sunlightChart"></canvas>
+  </div>
+
+  <script>
+    // Sample data (replace with your actual data)
+    const hours = Array.from({ length: 24 }, (_, i) => `Hour ${i + 1}`);
+    const temperatureData = [22.5, 22.7, 23.0, 22.8, 22.6, 22.4, 22.3, 22.2, 22.1, 22.0, 21.9, 21.8, 21.7, 21.6, 21.5, 21.4, 21.3, 21.2, 21.1, 21.0, 20.9, 20.8, 20.7, 20.6];
+    const humidityData = [45.0, 44.5, 44.0, 43.5, 43.0, 42.5, 42.0, 41.5, 41.0, 40.5, 40.0, 39.5, 39.0, 38.5, 38.0, 37.5, 37.0, 36.5, 36.0, 35.5, 35.0, 34.5, 34.0, 33.5];
+    const sunlightData = [320, 310, 300, 290, 280, 270, 260, 250, 240, 230, 220, 210, 200, 190, 180, 170, 160, 150, 140, 130, 120, 110, 100, 90];
+
+    // Temperature Chart
+    const temperatureCtx = document.getElementById('temperatureChart').getContext('2d');
+    new Chart(temperatureCtx, {
+      type: 'line',
+      data: {
+        labels: hours,
+        datasets: [{
+          label: 'Temperature (°C)',
+          data: temperatureData,
+          borderColor: '#ff6384',
+          backgroundColor: 'rgba(255, 99, 132, 0.2)',
+          borderWidth: 2,
+          fill: true,
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: false,
+            title: {
+              display: true,
+              text: 'Temperature (°C)'
+            }
+          },
+          x: {
+            title: {
+              display: true,
+              text: 'Time (Hours)'
+            }
+          }
+        }
+      }
+    });
+
+    // Humidity Chart
+    const humidityCtx = document.getElementById('humidityChart').getContext('2d');
+    new Chart(humidityCtx, {
+      type: 'line',
+      data: {
+        labels: hours,
+        datasets: [{
+          label: 'Humidity (%)',
+          data: humidityData,
+          borderColor: '#36a2eb',
+          backgroundColor: 'rgba(54, 162, 235, 0.2)',
+          borderWidth: 2,
+          fill: true,
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: false,
+            title: {
+              display: true,
+              text: 'Humidity (%)'
+            }
+          },
+          x: {
+            title: {
+              display: true,
+              text: 'Time (Hours)'
+            }
+          }
+        }
+      }
+    });
+
+    // Sunlight Chart
+    const sunlightCtx = document.getElementById('sunlightChart').getContext('2d');
+    new Chart(sunlightCtx, {
+      type: 'line',
+      data: {
+        labels: hours,
+        datasets: [{
+          label: 'Sunlight (lux)',
+          data: sunlightData,
+          borderColor: '#4bc0c0',
+          backgroundColor: 'rgba(75, 192, 192, 0.2)',
+          borderWidth: 2,
+          fill: true,
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: false,
+            title: {
+              display: true,
+              text: 'Sunlight (lux)'
+            }
+          },
+          x: {
+            title: {
+              display: true,
+              text: 'Time (Hours)'
+            }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-##The Point
+## The Point
 
 Allowing users to deploy a user interface for C++ applications rapidly through a no-bloat library which makes a web interface easily accesible.
 

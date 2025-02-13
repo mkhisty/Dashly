@@ -2,6 +2,9 @@
 
 Allowing users to deploy a user interface for C++ applications rapidly through a no-bloat library which makes a web interface easily accesible.
 
+
+![image](https://github.com/user-attachments/assets/be2c6091-522f-48a9-8e0e-5960ef6b4da3)
+
 ## How It Works
 
 1. Import this library into whatever c++ project

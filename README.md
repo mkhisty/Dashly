@@ -9,7 +9,7 @@ Allowing users to deploy a user interface for C++ applications rapidly through a
 
 1. Import this library into whatever c++ project
 2. Initialize Dashly
-3. Configure template for proper UI
+3. Configure template for proper application
 4. Call the display function with your data
 5. View your dashboard at http://localhost:8080
 
